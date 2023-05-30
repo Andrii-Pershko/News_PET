@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/News_PET/static/css/main.7acaea2f.css",
+    "main.js": "/News_PET/static/js/main.cf9dc274.js",
+    "index.html": "/News_PET/index.html",
+    "main.7acaea2f.css.map": "/News_PET/static/css/main.7acaea2f.css.map",
+    "main.cf9dc274.js.map": "/News_PET/static/js/main.cf9dc274.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7acaea2f.css",
+    "static/js/main.cf9dc274.js"
+  ]
+}
