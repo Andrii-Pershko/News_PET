@@ -1,0 +1,22 @@
+.modal-container {
+    background-color: var(--white-backgtound-color);
+    position: absolute;
+    top: -100%;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    transition: all 0.5s;
+    display: flex;
+    justify-content: center;
+
+}
+
+.modal-container.is-Open {
+    top: 0;
+    transition: all 0.5s;
+}
+
+.modal {
+    width: 320px;
+    padding-top: 125px;
+}

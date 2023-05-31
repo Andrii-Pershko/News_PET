@@ -1,31 +1,53 @@
-import { Suspense } from 'react';
-import { Outlet } from 'react-router-dom';
-import { Container, Header, Logo, Link } from './SharedLayout.module.js';
-import { SpanGO } from './SharedLayout.module.js';
-import { SpanIt } from './SharedLayout.module.js';
+import { Suspense, useState } from 'react';
+import { NavLink, Outlet } from 'react-router-dom';
+import './SharedLayout.css';
+import { Container } from 'components/Container/Container.jsx';
+
+import { Modal } from 'components/Modal/Modal';
 
 export const SharedLayout = () => {
+  const [openMenu, setOpenMenu] = useState(false);
+
+  const togleStatusMenu = () => {
+    setOpenMenu(!openMenu);
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+  };
+
   return (
     <Container>
-      <Header>
-        <Logo>
-          Welcome to Test Task <SpanGO>Go</SpanGO>
-          <SpanIt>IT</SpanIt>
-        </Logo>
+      <header>
+        <p className="logo">News</p>
         <nav>
-          <Link to="/" end>
+          <NavLink className="link" to="/" end>
             Home
-          </Link>
-          <Link to="/tweets" end>
-            Tweets
-          </Link>
+          </NavLink>
+          <NavLink className="link" to="/favorine" end>
+            Favorine
+          </NavLink>
+          <NavLink className="link" to="/read" end>
+            Read
+          </NavLink>
         </nav>
-      </Header>
+        <div style={{ width: '173px' }}>
+          <form onSubmit={handleSubmit} className="not-active-search">
+            <button className="btn-submit" type="submit"></button>
+            <input placeholder="Search" />
+          </form>
+        </div>
+        <button
+          onClick={togleStatusMenu}
+          className={`menu ${openMenu ? 'active-btn' : ''}`}
+        ></button>
+      </header>
       <Suspense fallback={<div>Loading page...</div>}>
         <main>
           <Outlet />
         </main>
       </Suspense>
+      <Modal openMenu={openMenu}></Modal>
     </Container>
   );
 };

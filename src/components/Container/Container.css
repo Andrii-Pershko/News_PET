@@ -1,0 +1,36 @@
+.container {
+    width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: var(--white-backgtound-color);
+    padding: 0 16px;
+
+    overflow: hidden;
+}
+
+.theme {
+    height: 100%;
+}
+
+.white-theme {
+    background-color: var(--white-backgtound-color);
+    color: var(--dark-text-color);
+    height: 100%;
+}
+
+.dark-theme {
+    background-color: var(--dark-background-color);
+    color: var(--white-text-color);
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        width: 768px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .container {
+        width: 1280px;
+    }
+}

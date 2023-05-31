@@ -1,0 +1,121 @@
+.logo {
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    z-index: 100;
+}
+
+header {
+    display: flex;
+    padding: 24px 0;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+form {
+    height: 31px;
+    width: 173px;
+    border: 1px solid var(--dark-text-color);
+    border-radius: 20px;
+    padding: 5px 14px;
+    display: flex;
+    align-items: center;
+
+}
+
+nav {
+    display: none;
+}
+
+.link {
+    text-decoration: none;
+    color: var(--dark-text-color);
+    display: inline-block;
+}
+
+.active::after {
+    content: '';
+    display: block;
+    width: calc(100% + 10px);
+    margin-left: -5px;
+    height: 1px;
+    background-color: var(--primal-color);
+}
+
+.btn-submit {
+    width: 15px;
+    height: 15px;
+    margin-right: 19px;
+    background: url(../../img/svg/dandruff.svg) 50% 50% / cover no-repeat;
+}
+
+input {
+    width: 98px;
+}
+
+.menu {
+    width: 24px;
+    height: 24px;
+    overflow: hidden;
+    position: relative;
+    z-index: 100;
+
+}
+
+.menu::before {
+    content: '';
+    display: block;
+    position: absolute;
+    background-image: url(../../img/svg/menu.svg);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 24px;
+    width: 24px;
+    height: 24px;
+    top: 0;
+    transition: all 0.5s;
+}
+
+.menu.active-btn::before {
+    top: 24px;
+    background-size: 5px;
+    transition: all 0.5s;
+}
+
+.menu::after {
+    content: '';
+    position: absolute;
+    background-image: url(../../img/svg/x.svg);
+    background-size: 5px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    top: -24px;
+    display: block;
+    width: 24px;
+    height: 24px;
+    /* background-color: yellow; */
+    transition: all 0.5s;
+
+}
+
+.menu.active-btn::after {
+    top: 0;
+    background-size: 24px;
+    transition: all 0.5s;
+
+}
+
+
+@media screen and (min-width: 768px) {
+    .container {
+        width: 768px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .container {
+        width: 1280px;
+    }
+}
