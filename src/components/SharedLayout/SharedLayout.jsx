@@ -43,7 +43,7 @@ export const SharedLayout = () => {
         <div className={`search-box`}>
           <form
             onSubmit={handleSubmit}
-            className={openSearchBar ? 'searchOpen' : ''}
+            className={`search-form ${openSearchBar ? 'searchOpen' : ''}`}
           >
             <button
               className="btn-submit"

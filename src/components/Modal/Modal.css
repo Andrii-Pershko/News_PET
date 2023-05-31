@@ -102,6 +102,85 @@
     height: 32px;
 }
 
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+.custom-check {
+    width: 40px;
+    height: 20px;
+    border: 1px solid var(--primal-color);
+    border-radius: 20px;
+    transition: all 0.5s;
+}
+
+.check {
+    border-color: var(--white-backgtound-color);
+    border: 1px solid var(--white-backgtound-color);
+    background-color: var(--primal-color);
+}
+
+.custom-check::after {
+    content: '';
+    display: block;
+    margin-top: 1px;
+    margin-left: 1px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--primal-color);
+    transition: all 0.5s;
+}
+
+.custom-check.check::after {
+    margin-left: 21px;
+    transition: all 0.5s;
+    background-color: var(--white-backgtound-color);
+}
+
+.custom-check-psevdo {
+    position: relative;
+    display: inline;
+}
+
+
+
+.custom-check-psevdo::after {
+    position: absolute;
+    top: 0;
+    left: -30px;
+    background-image: url(../../img/svg/sun.svg);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    content: '';
+    display: block;
+    width: 21px;
+    height: 21px;
+
+}
+
+.custom-check-psevdo::before {
+    position: absolute;
+    top: 0;
+    left: 48px;
+    background-image: url(../../img/svg/moon.svg);
+    background-repeat: no-repeat;
+    content: '';
+    display: block;
+    width: 21px;
+    height: 21px;
+
+}
+
 
 @media screen and (min-width: 768px) {
     .modal-container {
