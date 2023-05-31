@@ -1,0 +1,1 @@
+import { defaul } from './Favorite';
