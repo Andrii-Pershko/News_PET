@@ -33,7 +33,7 @@ export const SharedLayout = () => {
           <NavLink className="link" to="/" end>
             Home
           </NavLink>
-          <NavLink className="link" to="/favorine" end>
+          <NavLink className="link" to="/favorite" end>
             Favorine
           </NavLink>
           <NavLink className="link" to="/read" end>
