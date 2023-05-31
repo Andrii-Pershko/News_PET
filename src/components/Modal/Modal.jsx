@@ -1,26 +1,38 @@
 import { NavLink } from 'react-router-dom';
 import './Modal.css';
 
-export const Modal = ({ openMenu }) => {
-  const container = document.body.children[2];
-  console.log('container', container);
-
+export const Modal = ({ openMenu, togleModal }) => {
   return (
     <div className={`modal-container ${openMenu ? 'is-Open' : ''}`}>
       <div className="modal">
         <ul>
-          <li className="navigations-btn">
-            <NavLink className="navigations-btn" to="/" end>
+          <li className="navigations-box">
+            <NavLink
+              className="home-page navigations-btn"
+              onClick={togleModal}
+              to="/"
+              end
+            >
               Home
             </NavLink>
           </li>
-          <li className="navigations-btn">
-            <NavLink className="navigations-btn" to="/favorite" end>
+          <li className="navigations-box">
+            <NavLink
+              className="favorite-page navigations-btn"
+              onClick={togleModal}
+              to="/favorite"
+              end
+            >
               Favorite
             </NavLink>
           </li>
-          <li className="navigations-btn">
-            <NavLink className="navigations-btn" to="/read" end>
+          <li className="navigations-box">
+            <NavLink
+              className="read-page navigations-btn"
+              onClick={togleModal}
+              to="/read"
+              end
+            >
               Read
             </NavLink>
           </li>

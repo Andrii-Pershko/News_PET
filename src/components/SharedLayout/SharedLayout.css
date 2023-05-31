@@ -14,16 +14,7 @@ header {
 
 }
 
-form {
-    height: 31px;
-    width: 173px;
-    border: 1px solid var(--dark-text-color);
-    border-radius: 20px;
-    padding: 5px 14px;
-    display: flex;
-    align-items: center;
 
-}
 
 nav {
     display: none;
@@ -35,7 +26,7 @@ nav {
     display: inline-block;
 }
 
-.active::after {
+.active.link::after {
     content: '';
     display: block;
     width: calc(100% + 10px);
@@ -107,8 +98,36 @@ input {
 
 }
 
+form {
+    height: 31px;
+    width: 173px;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    padding: 5px 14px;
+    display: flex;
+    align-items: center;
+    margin-left: 142px;
+    transition: all 0.5s;
+}
+
+.search-box {
+    position: relative;
+    overflow: hidden;
+    width: 173px;
+    transition: all 0.5s;
+}
+
+.searchOpen {
+    margin-left: 0;
+    border: 1px solid var(--dark-text-color);
+    transition: all 0.5s;
+}
 
 @media screen and (min-width: 768px) {
+    nav {
+        display: flex;
+    }
+
     .container {
         width: 768px;
     }

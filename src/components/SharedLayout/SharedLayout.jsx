@@ -1,5 +1,5 @@
 import { Suspense, useState } from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import './SharedLayout.css';
 import { Container } from 'components/Container/Container.jsx';
 
@@ -7,13 +7,22 @@ import { Modal } from 'components/Modal/Modal';
 
 export const SharedLayout = () => {
   const [openMenu, setOpenMenu] = useState(false);
+  const [openSearchBar, setOpenSearchBar] = useState(false);
+  const [inputValue, setInputValue] = useState('');
+  const navigate = useNavigate();
 
   const togleStatusMenu = () => {
     setOpenMenu(!openMenu);
   };
 
+  const handleClickToSearch = () => {
+    setOpenSearchBar(!openSearchBar);
+  };
+
   const handleSubmit = e => {
     e.preventDefault();
+    console.log(inputValue);
+    navigate('/');
   };
 
   return (
@@ -31,10 +40,21 @@ export const SharedLayout = () => {
             Read
           </NavLink>
         </nav>
-        <div style={{ width: '173px' }}>
-          <form onSubmit={handleSubmit} className="not-active-search">
-            <button className="btn-submit" type="submit"></button>
-            <input placeholder="Search" />
+        <div className={`search-box`}>
+          <form
+            onSubmit={handleSubmit}
+            className={openSearchBar ? 'searchOpen' : ''}
+          >
+            <button
+              className="btn-submit"
+              onClick={handleClickToSearch}
+              type={!openSearchBar ? 'submit' : 'button'}
+            ></button>
+            <input
+              onChange={e => setInputValue(e.target.value)}
+              value={inputValue}
+              placeholder="Search"
+            />
           </form>
         </div>
         <button
@@ -47,7 +67,11 @@ export const SharedLayout = () => {
           <Outlet />
         </main>
       </Suspense>
-      <Modal openMenu={openMenu}></Modal>
+      <Modal
+        togleModal={togleStatusMenu}
+        openMenu={openMenu}
+        closeSearch={handleClickToSearch}
+      ></Modal>
     </Container>
   );
 };

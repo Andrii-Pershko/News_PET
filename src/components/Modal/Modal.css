@@ -20,3 +20,91 @@
     width: 320px;
     padding-top: 125px;
 }
+
+.navigations-box {
+    height: 44px;
+    width: 100%;
+    margin-bottom: 16px;
+
+}
+
+.navigations-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 62px;
+    height: 44px;
+    color: var(--darl-text);
+
+}
+
+.navigations-btn::after {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    right: 16px;
+    background-image: url(../../img/svg/chevron-right.svg);
+}
+
+.navigations-btn.active {
+
+    color: var(--white-text-color);
+    background-color: var(--primal-color);
+
+}
+
+.home-page::before {
+    content: '';
+    border: 1px solid var(--white-backgtound-color);
+    border-radius: 50%;
+    background-image: url(../../img/svg/home.svg);
+    background-position: 50% 50%;
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    transform: translate(0, -50%);
+    display: block;
+    width: 32px;
+    height: 32px;
+
+}
+
+.favorite-page::before {
+    content: '';
+    position: absolute;
+    background-image: url(../../img/svg/favorit.svg);
+    border: 1px solid var(--white-backgtound-color);
+    border-radius: 50%;
+    background-position: 50% 50%;
+    top: 50%;
+    left: 16px;
+    transform: translate(0, -50%);
+    display: block;
+    width: 32px;
+    height: 32px;
+
+}
+
+.read-page::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    transform: translate(0, -50%);
+    border: 1px solid var(--white-backgtound-color);
+    border-radius: 50%;
+    background-image: url(../../img/svg/book.svg);
+    background-position: 50% 50%;
+    display: block;
+    width: 32px;
+    height: 32px;
+}
+
+
+@media screen and (min-width: 768px) {
+    .modal-container {
+        display: none;
+    }
+}
