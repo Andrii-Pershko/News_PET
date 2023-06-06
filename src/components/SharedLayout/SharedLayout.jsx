@@ -20,14 +20,13 @@ export const SharedLayout = () => {
   });
   const navigate = useNavigate();
 
-  console.log('first', darkTheme);
-
   const toglleTheme = () => {
     setDarkTheme(!darkTheme);
   };
 
   useEffect(() => {
     if (document.styleSheets[4]) {
+      console.log('first', document.styleSheets);
       document.styleSheets[4].disabled = !darkTheme;
     }
     localStorage.setItem('Theme', darkTheme);
