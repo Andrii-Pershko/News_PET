@@ -5,21 +5,23 @@ export const Home = () => {
   const [isLoading, setIsloading] = useState(false);
   const [news, setNews] = useState([]);
   const [error, setError] = useState(false);
+  const [categories, setCategories] = useState([]);
   console.log('news', news);
+  console.log('categories', categories);
 
   useEffect(() => {
     getCategories().then(res => {
-      console.log('first', res);
       if (res.status !== 'OK') {
         setError(!error);
       }
+      setCategories(res);
     });
 
     getTopNews().then(res => {
       setIsloading(true);
       setNews(res);
     });
-  }, []);
+  }, [error]);
 
   if (!isLoading) {
     return <h2>Page loading, please wait...</h2>;
