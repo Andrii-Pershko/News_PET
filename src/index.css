@@ -5,8 +5,13 @@
   border: none;
 }
 
-body{
+
+
+
+body {
   background-color: var(--body);
+  transition: all 0.5s;
+
 }
 
 *,

@@ -6,6 +6,7 @@
     overflow: hidden;
     color: var(--text-color);
     background-color: var(--backgtound-color);
+    transition: all 0.5s;
 }
 
 

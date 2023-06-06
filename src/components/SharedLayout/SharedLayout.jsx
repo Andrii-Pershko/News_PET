@@ -30,7 +30,7 @@ export const SharedLayout = () => {
     localStorage.setItem('Theme', darkTheme);
     console.log('darkTheme', darkTheme);
     console.log('style', document.styleSheets);
-    document.styleSheets[3].disabled = !darkTheme;
+    document.styleSheets[4].disabled = !darkTheme;
   }, [darkTheme]);
 
   const togleStatusMenu = () => {

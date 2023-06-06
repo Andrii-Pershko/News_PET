@@ -181,4 +181,35 @@
     .modal-container {
         display: none;
     }
+
+    .custom-check-psevdo {
+        font-size: 18px;
+    }
+
+    .custom-check {
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+
+    .custom-check-psevdo::after {
+        -webkit-mask-image: none;
+        background-color: inherit;
+        content: 'Dark';
+        color: var(--moon-color);
+        width: auto;
+        height: auto;
+
+
+    }
+
+    .custom-check-psevdo::before {
+        -webkit-mask-image: none;
+        background-color: inherit;
+        content: 'Light';
+        color: var(--sun-color);
+        width: auto;
+        height: auto;
+
+    }
+
 }

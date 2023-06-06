@@ -50,30 +50,6 @@ nav {
 
 
 
-nav::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    display: block;
-    height: 1px;
-    background-color: var(--primal-color);
-    transition: all 0.5s;
-}
-
-nav:has(.active.home)::after {
-    width: 56px;
-    margin-left: -5px;
-}
-
-nav:has(.active.favorite)::after {
-    width: 69px;
-    margin-left: 88px;
-}
-
-nav:has(.active.read)::after {
-    width: 45px;
-    margin-left: 195px;
-}
 
 .btn-submit {
     width: 15px;
@@ -108,13 +84,13 @@ input {
     width: 24px;
     height: 24px;
     top: 0;
-    transition: all 0.5s;
+   
 }
 
 .menu.active-btn::before {
     top: 24px;
     background-size: 5px;
-    transition: all 0.5s;
+   
 }
 
 .menu::after {
@@ -127,40 +103,38 @@ input {
     width: 24px;
     height: 24px;
     /* background-color: yellow; */
-    transition: all 0.5s;
+   
 
 }
 
 .menu.active-btn::after {
     top: 0;
     background-size: 24px;
-    transition: all 0.5s;
+   
 
 }
 
 .search-form {
     height: 31px;
-    width: 173px;
+    width: 100%;
     border: 1px solid transparent;
     border-radius: 20px;
     padding: 5px 14px;
     display: flex;
     align-items: center;
     margin-left: 142px;
-    transition: all 0.5s;
 }
 
 .search-box {
     position: relative;
     overflow: hidden;
     width: 173px;
-    transition: all 0.5s;
 }
 
 .searchOpen {
     margin-left: 0;
     border: 1px solid var(--border-form);
-    transition: all 0.5s;
+   
 }
 
 @media screen and (min-width: 768px) {
@@ -182,7 +156,6 @@ input {
 
     .search-form {
         border: 1px solid var(--border-form);
-        width: 213px;
         margin-left: 0;
     }
 
@@ -198,8 +171,6 @@ input {
         justify-content: start;
     }
 
-
-
     .logo {
         font-size: 32px;
         margin-right: 48px;
@@ -207,6 +178,31 @@ input {
 
     nav {
         margin-right: 32px;
+    }
+
+    nav::after {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        display: block;
+        height: 1px;
+        background-color: var(--primal-color);
+       
+    }
+
+    nav:has(.active.home)::after {
+        width: 56px;
+        margin-left: -5px;
+    }
+
+    nav:has(.active.favorite)::after {
+        width: 65px;
+        margin-left: 88px;
+    }
+
+    nav:has(.active.read)::after {
+        width: 45px;
+        margin-left: 195px;
     }
 
     .search-box {
@@ -228,4 +224,43 @@ input {
     .container {
         width: 1280px;
     }
+
+    .logo {
+        font-size: 42px;
+        margin-right: 102px;
+    }
+
+    header {
+        align-items: baseline;
+    }
+
+    nav {
+        font-size: 18px;
+        margin-right: 147px;
+    }
+
+    .link:not(:last-child) {
+        margin-right: 69px;
+    }
+
+    .search-box {
+        margin-right: 147px;
+        width: 288px;
+    }
+
+    nav:has(.active.home)::after {
+        width: 60px;
+        margin-left: -5px;
+    }
+
+    nav:has(.active.favorite)::after {
+        width: 74px;
+        margin-left: 117px;
+    }
+
+    nav:has(.active.read)::after {
+        width: 50px;
+        margin-left: 256px;
+    }
+
 }
