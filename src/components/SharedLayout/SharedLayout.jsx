@@ -25,6 +25,8 @@ export const SharedLayout = () => {
   };
 
   useEffect(() => {
+    console.log('first', document.styleSheets);
+
     if (document.styleSheets[4]) {
       console.log('first', document.styleSheets);
       document.styleSheets[4].disabled = !darkTheme;
