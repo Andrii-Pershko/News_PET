@@ -5,11 +5,38 @@
   border: none;
 }
 
+:root {
+  --primal-color: #4440F6;
+  --second-color: #A8A8A8;
+  --text-color: #111321;
+  --backgtound-color: #f4f4f4;
+  --dark-background-color: #2E2E2E;
+  --white: #ffffff;
+  --sun-color: #4440F6;
+  --moon-color: #5F6775;
+  --shevron-color: #f4f4f4;
+  --body: #f4f4f4;
+  --border-form: #111321;
+}
+
+.darkTheme {
+  --second-color: #A8A8A8;
+  --text-color: #f4f4f4;
+  --fill-btn: #f4f4f4f4;
+  --backgtound-color: #2E2E2E;
+  --dark-background-color: #2E2E2E;
+  --white: #ffffff;
+  --sun-color: #5F6775;
+  --moon-color: #4440F6;
+  --body: #2E2E2E;
+  --border-form: #F4F4F4;
+}
+
 
 
 
 body {
-  background-color: var(--body);
+  background-color: var(--backgtound-color);
   transition: all 0.5s;
 
 }

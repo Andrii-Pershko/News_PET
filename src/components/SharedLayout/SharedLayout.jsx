@@ -1,38 +1,20 @@
-import { Suspense, useEffect, useState } from 'react';
+import { Suspense, useState } from 'react';
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { Container } from 'components/Container/Container.jsx';
 import { Modal } from 'components/Modal/Modal';
 import './SharedLayout.css';
-import './darkTheme.css';
+import { useTheme } from 'userContext';
 
 export const SharedLayout = () => {
   const [openMenu, setOpenMenu] = useState(false);
   const [openSearchBar, setOpenSearchBar] = useState(false);
   const [inputValue, setInputValue] = useState('');
-  const [darkTheme, setDarkTheme] = useState(() => {
-    let themeDark = localStorage.getItem('Theme');
-    themeDark = JSON.parse(themeDark);
-    if (themeDark === undefined && themeDark === false) {
-      localStorage.setItem('Theme', false);
-      return false;
-    }
-    return themeDark;
-  });
+  const body = document.querySelector('body');
+
+  const { darkTheme, toglleTheme } = useTheme();
+  body.setAttribute('class', `${darkTheme ? 'darkTheme' : ''}`);
+
   const navigate = useNavigate();
-
-  const toglleTheme = () => {
-    setDarkTheme(!darkTheme);
-  };
-
-  useEffect(() => {
-    console.log('first', document.styleSheets);
-
-    if (document.styleSheets[4]) {
-      console.log('first', document.styleSheets);
-      document.styleSheets[4].disabled = !darkTheme;
-    }
-    localStorage.setItem('Theme', darkTheme);
-  }, [darkTheme]);
 
   const togleStatusMenu = () => {
     setOpenMenu(!openMenu);
