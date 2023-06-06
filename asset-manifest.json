@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/News_PET/static/css/main.39d06dba.css",
-    "main.js": "/News_PET/static/js/main.70c93396.js",
+    "main.css": "/News_PET/static/css/main.5d82fbdc.css",
+    "main.js": "/News_PET/static/js/main.0a80b52f.js",
     "static/media/svg_sprite.svg": "/News_PET/static/media/svg_sprite.ee5b34efd5fe266417e50ac8d07d08ed.svg",
     "index.html": "/News_PET/index.html",
     "static/media/favorit.svg": "/News_PET/static/media/favorit.99575cd0706e1da0b78e.svg",
@@ -13,11 +13,11 @@
     "static/media/menu.svg": "/News_PET/static/media/menu.40cad0bd6f1c14ba9cac.svg",
     "static/media/x.svg": "/News_PET/static/media/x.b1abca649ee6a6d7941e.svg",
     "static/media/chevron-right.svg": "/News_PET/static/media/chevron-right.c1fd7fe4ea38b1bdc072.svg",
-    "main.39d06dba.css.map": "/News_PET/static/css/main.39d06dba.css.map",
-    "main.70c93396.js.map": "/News_PET/static/js/main.70c93396.js.map"
+    "main.5d82fbdc.css.map": "/News_PET/static/css/main.5d82fbdc.css.map",
+    "main.0a80b52f.js.map": "/News_PET/static/js/main.0a80b52f.js.map"
   },
   "entrypoints": [
-    "static/css/main.39d06dba.css",
-    "static/js/main.70c93396.js"
+    "static/css/main.5d82fbdc.css",
+    "static/js/main.0a80b52f.js"
   ]
 }
