@@ -12,7 +12,7 @@ export const SharedLayout = () => {
   const body = document.querySelector('body');
 
   const { darkTheme, toglleTheme } = useTheme();
-  body.setAttribute('class', `${darkTheme ? 'darkTheme' : ''}`);
+  body.setAttribute('class', `${darkTheme ? 'darkTheme' : 'whiteTheme'}`);
 
   const navigate = useNavigate();
 

@@ -42,8 +42,9 @@ nav {
     margin-right: 19px;
     -webkit-mask-image: url(../../img/svg/dandruff.svg);
     background-position: 50% 50%;
-    background-size: cover no-repeat;
+    background-size: cover;
     background-color: var(--text-color);
+    transition: all 0.5s;
 }
 
 input {
@@ -108,6 +109,7 @@ input {
     display: flex;
     align-items: center;
     margin-left: 142px;
+    transition: all 0.5s;
 }
 
 .search-box {
