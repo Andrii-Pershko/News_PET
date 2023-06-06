@@ -27,10 +27,10 @@ export const SharedLayout = () => {
   };
 
   useEffect(() => {
+    if (document.styleSheets[4]) {
+      document.styleSheets[4].disabled = !darkTheme;
+    }
     localStorage.setItem('Theme', darkTheme);
-    console.log('darkTheme', darkTheme);
-    console.log('style', document.styleSheets);
-    document.styleSheets[4].disabled = !darkTheme;
   }, [darkTheme]);
 
   const togleStatusMenu = () => {
