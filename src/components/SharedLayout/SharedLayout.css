@@ -1,5 +1,25 @@
+:root {
+    --primal-color: #4440F6;
+    --second-color: #A8A8A8;
+    --text-color: #111321;
+    --backgtound-color: #f4f4f4;
+    --dark-background-color: #2E2E2E;
+    --white: #ffffff;
+    --sun-color: #4440F6;
+    --moon-color: #5F6775;
+    --shevron-color: #f4f4f4;
+    --body: #f4f4f4;
+    --border-form: #111321;
+}
+
+
+.js-close {
+    display: none;
+}
+
 .logo {
     font-family: 'Manrope';
+    color: inherit;
     font-style: normal;
     font-weight: 700;
     font-size: 24px;
@@ -15,31 +35,54 @@ header {
 }
 
 
-
 nav {
     display: none;
+    position: relative;
 }
 
 .link {
     text-decoration: none;
     color: var(--dark-text-color);
     display: inline-block;
+    font-weight: 700;
+
 }
 
-.active.link::after {
+
+
+nav::after {
     content: '';
+    position: absolute;
+    bottom: -8px;
     display: block;
-    width: calc(100% + 10px);
-    margin-left: -5px;
     height: 1px;
     background-color: var(--primal-color);
+    transition: all 0.5s;
+}
+
+nav:has(.active.home)::after {
+    width: 56px;
+    margin-left: -5px;
+}
+
+nav:has(.active.favorite)::after {
+    width: 69px;
+    margin-left: 88px;
+}
+
+nav:has(.active.read)::after {
+    width: 45px;
+    margin-left: 195px;
 }
 
 .btn-submit {
     width: 15px;
     height: 15px;
     margin-right: 19px;
-    background: url(../../img/svg/dandruff.svg) 50% 50% / cover no-repeat;
+    -webkit-mask-image: url(../../img/svg/dandruff.svg);
+    background-position: 50% 50%;
+    background-size: cover no-repeat;
+    background-color: var(--text-color);
 }
 
 input {
@@ -59,9 +102,8 @@ input {
     content: '';
     display: block;
     position: absolute;
-    background-image: url(../../img/svg/menu.svg);
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
+    -webkit-mask-image: url(../../img/svg/menu.svg);
+    background-color: var(--text-color);
     background-size: 24px;
     width: 24px;
     height: 24px;
@@ -78,10 +120,8 @@ input {
 .menu::after {
     content: '';
     position: absolute;
-    background-image: url(../../img/svg/x.svg);
-    background-size: 5px;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
+    -webkit-mask-image: url(../../img/svg/x.svg);
+    background-color: var(--text-color);
     top: -24px;
     display: block;
     width: 24px;
@@ -119,7 +159,7 @@ input {
 
 .searchOpen {
     margin-left: 0;
-    border: 1px solid var(--dark-text-color);
+    border: 1px solid var(--border-form);
     transition: all 0.5s;
 }
 
@@ -128,9 +168,60 @@ input {
         display: flex;
     }
 
+    .link:not(:last-child) {
+        margin-right: 44px;
+    }
+
+    .menu {
+        display: none;
+    }
+
     .container {
         width: 768px;
     }
+
+    .search-form {
+        border: 1px solid var(--border-form);
+        width: 213px;
+        margin-left: 0;
+    }
+
+    .search-box {
+        width: 213px;
+    }
+
+    .js-close {
+        display: flex
+    }
+
+    header {
+        justify-content: start;
+    }
+
+
+
+    .logo {
+        font-size: 32px;
+        margin-right: 48px;
+    }
+
+    nav {
+        margin-right: 32px;
+    }
+
+    .search-box {
+        margin-right: 24px;
+    }
+
+    .table {
+        margin-top: 0;
+    }
+
+    .js-close {
+        margin-top: 0;
+    }
+
+
 }
 
 @media screen and (min-width: 1280px) {

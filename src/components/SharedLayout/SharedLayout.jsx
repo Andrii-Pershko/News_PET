@@ -1,15 +1,37 @@
-import { Suspense, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
-import './SharedLayout.css';
 import { Container } from 'components/Container/Container.jsx';
-
 import { Modal } from 'components/Modal/Modal';
+import './SharedLayout.css';
+import './darkTheme.css';
 
 export const SharedLayout = () => {
   const [openMenu, setOpenMenu] = useState(false);
   const [openSearchBar, setOpenSearchBar] = useState(false);
   const [inputValue, setInputValue] = useState('');
+  const [darkTheme, setDarkTheme] = useState(() => {
+    let themeDark = localStorage.getItem('Theme');
+    themeDark = JSON.parse(themeDark);
+    if (themeDark === undefined && themeDark === false) {
+      localStorage.setItem('Theme', false);
+      return false;
+    }
+    return themeDark;
+  });
   const navigate = useNavigate();
+
+  console.log('first', darkTheme);
+
+  const toglleTheme = () => {
+    setDarkTheme(!darkTheme);
+  };
+
+  useEffect(() => {
+    localStorage.setItem('Theme', darkTheme);
+    console.log('darkTheme', darkTheme);
+    console.log('style', document.styleSheets);
+    document.styleSheets[3].disabled = !darkTheme;
+  }, [darkTheme]);
 
   const togleStatusMenu = () => {
     setOpenMenu(!openMenu);
@@ -30,13 +52,13 @@ export const SharedLayout = () => {
       <header>
         <p className="logo">News</p>
         <nav>
-          <NavLink className="link" to="/" end>
+          <NavLink className="link home" to="/" end>
             Home
           </NavLink>
-          <NavLink className="link" to="/favorite" end>
-            Favorine
+          <NavLink className="link favorite" to="/favorite" end>
+            Favorite
           </NavLink>
-          <NavLink className="link" to="/read" end>
+          <NavLink className="link read" to="/read" end>
             Read
           </NavLink>
         </nav>
@@ -61,6 +83,18 @@ export const SharedLayout = () => {
           onClick={togleStatusMenu}
           className={`menu ${openMenu ? 'active-btn' : ''}`}
         ></button>
+        <label className={`custom-check-psevdo js-close`}>
+          <div
+            onClick={toglleTheme}
+            className={`custom-check  ${darkTheme ? 'check' : ''}`}
+          ></div>
+          <input
+            className="visually-hidden "
+            type="checkbox"
+            name="hobby"
+            value="music"
+          />
+        </label>
       </header>
       <Suspense fallback={<div>Loading page...</div>}>
         <main>
@@ -68,9 +102,11 @@ export const SharedLayout = () => {
         </main>
       </Suspense>
       <Modal
+        toglleTheme={toglleTheme}
         togleModal={togleStatusMenu}
         openMenu={openMenu}
         closeSearch={handleClickToSearch}
+        darkTheme={darkTheme}
       ></Modal>
     </Container>
   );

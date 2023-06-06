@@ -1,20 +1,12 @@
-:root {
-  --primal-color: #4440F6;
-  --second-color: #A8A8A8;
-  --dark-text-color: #111321;
-  --white-text-color: #f4f4f4;
-  --white-backgtound-color: #f4f4f4;
-  --dark-background-color: #2E2E2E;
-  --white: #ffffff;
-}
-
-
-
 /* Reset and base styles  */
 * {
   padding: 0px;
   margin: 0px;
   border: none;
+}
+
+body{
+  background-color: var(--body);
 }
 
 *,
