@@ -19,7 +19,7 @@ export const Home = () => {
       setIsloading(true);
       setNews(res);
     });
-  }, [error]);
+  }, []);
 
   if (!isLoading) {
     return <h2>Page loading, please wait...</h2>;
