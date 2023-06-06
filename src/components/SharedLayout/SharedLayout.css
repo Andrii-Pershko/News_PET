@@ -57,7 +57,7 @@ input {
     overflow: hidden;
     position: relative;
     z-index: 100;
-
+    transition: all 0.5s;
 }
 
 .menu::before {
@@ -70,13 +70,13 @@ input {
     width: 24px;
     height: 24px;
     top: 0;
-
+    transition: all 0.5s;
 }
 
 .menu.active-btn::before {
     top: 24px;
     background-size: 5px;
-
+    transition: all 0.5s;
 }
 
 .menu::after {
@@ -88,8 +88,7 @@ input {
     display: block;
     width: 24px;
     height: 24px;
-    /* background-color: yellow; */
-
+    transition: all 0.5s;
 
 }
 
@@ -174,22 +173,25 @@ input {
         display: block;
         height: 1px;
         background-color: var(--primal-color);
-
+        transition: all 0.5s;
     }
 
     nav:has(.active.home)::after {
         width: 56px;
         margin-left: -5px;
+        transition: all 0.5s;
     }
 
     nav:has(.active.favorite)::after {
         width: 65px;
         margin-left: 88px;
+        transition: all 0.5s;
     }
 
     nav:has(.active.read)::after {
         width: 45px;
         margin-left: 195px;
+        transition: all 0.5s;
     }
 
     .search-box {
