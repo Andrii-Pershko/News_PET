@@ -11,7 +11,8 @@ export const SharedLayout = () => {
   const [inputValue, setInputValue] = useState('');
   const body = document.querySelector('body');
 
-  const { darkTheme, toglleTheme } = useTheme();
+  const { darkTheme, toglleTheme, loading } = useTheme();
+
   body.setAttribute('class', `${darkTheme ? 'darkTheme' : 'whiteTheme'}`);
 
   const navigate = useNavigate();
@@ -29,6 +30,10 @@ export const SharedLayout = () => {
     console.log(inputValue);
     navigate('/');
   };
+
+  if (loading) {
+    return;
+  }
 
   return (
     <Container>

@@ -1,0 +1,193 @@
+.react-calendar {
+    font-family: 'Manrope';
+    border-radius: 20px;
+    padding: 0px 10px 0px 10px;
+    overflow: hidden;
+    background-color: var(--white);
+    width: 250px;
+    color: #000000;
+    position: absolute;
+    top: 103%;
+    right: 0;
+    max-height: 0px;
+    transition: max-height 0.5s, padding 0.5s;
+    z-index: 1;
+}
+
+.is-open-calendar.react-calendar {
+    max-height: 500px;
+    padding: 27px 10px 20px 10px;
+    transition: max-height 0.5s, padding 0.5s
+}
+
+.react-calendar__navigation__prev2-button {
+    display: none;
+}
+
+.react-calendar__navigation__next2-button {
+    display: none;
+}
+
+
+.react-calendar__navigation {
+    display: flex;
+}
+
+.react-calendar__navigation__label {
+    order: -1;
+    flex-grow: 0;
+    text-align: left;
+    position: relative;
+    flex-grow: 0 !important;
+    margin-right: auto;
+    margin-bottom: 17px;
+
+}
+
+.react-calendar__navigation__label__labelText {
+    position: relative;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: -0.408px;
+    font-feature-settings: 'case' on;
+    margin-left: 6px;
+}
+
+.react-calendar__navigation__label__labelText:hover {
+    color: var(--primal-color);
+}
+
+.react-calendar__navigation__label__labelText::after {
+    content: '';
+    background-image: url('../../img/svg/arrow_down.svg');
+    background-repeat: no-repeat;
+    position: absolute;
+    background-size: contain;
+    right: -15px;
+    display: block;
+    width: 12px;
+    height: 7px;
+    top: 50%;
+    transform: translate(0, -35%) rotate(-90deg);
+}
+
+.react-calendar__navigation__prev-button {
+    margin-right: 31px;
+}
+
+.react-calendar__navigation__next-button {
+    margin-right: 6px;
+}
+
+.react-calendar__navigation__prev-button::after {
+    content: '';
+    background-image: url('../../img/svg/arrow_down.svg');
+    background-repeat: no-repeat;
+    position: absolute;
+    background-size: contain;
+    display: block;
+    width: 17px;
+    height: 9px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -35%) rotate(90deg);
+
+}
+
+
+.react-calendar__navigation__next-button::before {
+    content: '';
+    -webkit-mask-image: url('../../img/svg/arrow_down.svg');
+    position: absolute;
+    background-color: var(--primal-color);
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    width: 17px;
+    height: 9px;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -35%) rotate(-90deg);
+}
+
+.react-calendar__navigation__arrow {
+    position: relative;
+    width: 9px;
+    height: 17px;
+    color: transparent;
+}
+
+.react-calendar__month-view__days__day--weekend {
+    color: #5F6775;
+}
+
+.react-calendar__month-view__days__day--neighboringMonth {
+    color: #3C3C434D;
+}
+
+.react-calendar__month-view__days {
+    justify-content: space-between;
+}
+
+.react-calendar__tile--active {
+    background-color: var(--primal-color);
+    border-radius: 50%;
+    color: var(--white);
+}
+
+.react-calendar__tile {
+    width: 28px;
+    height: 28px;
+    margin-right: 1px;
+    flex: none !important;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 25px;
+    letter-spacing: 0.38px;
+}
+
+.react-calendar__tile:hover {
+    color: var(--primal-color);
+}
+
+.react-calendar__tile--active:hover {
+    color: var(--white)
+}
+
+.react-calendar__month-view__weekdays {
+    margin-bottom: 14px;
+    text-align: center;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: -0.078px;
+}
+
+abbr[title] {
+    text-decoration: none;
+    color: #3C3C434D;
+}
+
+.react-calendar__year-view__months {
+    justify-content: space-between;
+}
+
+.react-calendar__year-view__months__month {
+    width: 40%;
+}
+
+.react-calendar__decade-view__years__year {
+    width: 25%;
+}
+
+.react-calendar__decade-view__years {
+    justify-content: space-between;
+}
+
+.react-calendar__century-view__decades__decade {
+    width: 45%;
+}
+
+.react-calendar__century-view__decades {
+    justify-content: space-between;
+}

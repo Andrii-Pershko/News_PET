@@ -8,7 +8,7 @@
     font-style: normal;
     font-weight: 700;
     font-size: 24px;
-    z-index: 100;
+    z-index: 1001;
 }
 
 header {
@@ -16,7 +16,15 @@ header {
     padding: 24px 0;
     align-items: center;
     justify-content: space-between;
+}
 
+body::after {
+    position: absolute;
+    top: 80px;
+    content: '';
+    background-color: #00000033;
+    height: 1px;
+    width: 100%;
 }
 
 
@@ -30,15 +38,11 @@ nav {
     color: var(--dark-text-color);
     display: inline-block;
     font-weight: 700;
-
 }
 
-
-
-
 .btn-submit {
-    width: 15px;
-    height: 15px;
+    width: 16px;
+    height: 16px;
     margin-right: 19px;
     -webkit-mask-image: url(../../img/svg/dandruff.svg);
     background-position: 50% 50%;
@@ -56,7 +60,7 @@ input {
     height: 24px;
     overflow: hidden;
     position: relative;
-    z-index: 100;
+    z-index: 1001;
     transition: all 0.5s;
 }
 

@@ -1,0 +1,186 @@
+.open-categories {
+    padding: 6.5px 13px;
+    padding-right: 37px;
+    background-color: var(--background-categorise-button);
+    display: flex;
+    color: var(--primal-color);
+    border: 1px solid #4440F7;
+    border-radius: 20px;
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    position: relative;
+    text-transform: capitalize;
+    transition: background-color 0.5s;
+}
+
+.open-categories:hover {
+    background-color: var(--primal-color);
+    color: var(--white);
+    transition: background-color 0.5s;
+}
+
+.open-categories:hover::after {
+    background-color: var(--white);
+}
+
+.open-categories:hover::before {
+    background-color: var(--white);
+}
+
+.open-categories::after {
+    content: '';
+    display: block;
+    width: 9px;
+    height: 2px;
+    background-color: var(--primal-color);
+    transform: rotate(-45deg) translate(0%, -50%);
+    position: absolute;
+    right: 17px;
+    top: 50%;
+    transition: transform 0.5s;
+}
+
+.open-categories::before {
+    content: '';
+    display: block;
+    width: 9px;
+    height: 2px;
+    background-color: var(--primal-color);
+    transform: rotate(45deg) translate(0%, -50%);
+    position: absolute;
+    right: 13px;
+    top: 50%;
+    transition: transform 0.5s;
+}
+
+.open-list-filter::after {
+    transform: rotate(45deg) translate(0%, 50%);
+    transition: transform 0.5s;
+}
+
+.open-list-filter::before {
+    transform: rotate(-45deg) translate(0%, 50%);
+    transition: transform 0.5s;
+}
+
+
+.filter-list {
+    font-family: 'Manrope';
+    background-color: var(--white);
+    width: 148px;
+    font-size: 12px;
+    border-radius: 20px;
+    color: var(--primal-color);
+    padding: 0px 14px 0px 14px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.01em;
+    overflow: auto;
+    position: absolute;
+    height: 0;
+    transition: height 0.5s, padding 0.5s, visibility 0.45s;
+    z-index: 4;
+    top: 100%;
+    visibility: hidden;
+}
+
+.filter-list.is-open-filter-list {
+    height: 380px;
+    padding: 14px;
+    visibility: visible;
+    transition: height 0.5s, padding 0.5s, visibility 0.45s
+}
+
+.filter-list>li:not(:last-child) {
+    margin-bottom: 12px;
+
+}
+
+.filter-list>li>span {
+    cursor: pointer;
+    display: inline;
+}
+
+.filter-list>li>span:hover {
+    cursor: pointer;
+    border-bottom: 1px solid var(--primal-color);
+}
+
+.news {
+    padding-top: 24px;
+}
+
+.calendar_button {
+    position: relative;
+    width: 152px;
+    height: 31px;
+    border: 1px solid var(--border-form);
+    border-radius: 20px;
+    background-image: url(../../img/svg/calendar.svg);
+    background-repeat: no-repeat;
+    background-position: 12px 5px;
+    padding-left: 44px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 21px;
+    letter-spacing: 0.02em;
+    padding-right: 12px;
+    transition: background-image 0.5s, background-color 0.5s,
+}
+
+.date-button {
+    opacity: 0.4;
+    transform: opacity 0.5s;
+}
+
+.calendar_button:hover {
+    background-image: url(../../img/svg/calendar-withe.svg);
+    background-color: var(--primal-color);
+    border-color: var(--primal-color);
+    color: var(--white);
+    transition: background-image 0.5s, background-color 0.5s;
+
+}
+
+.calendar_button:hover::after {
+    background-color: var(--white);
+}
+
+.calendar_button:hover .date-button {
+    opacity: 1;
+    transform: opacity 0.5s;
+}
+
+.calendar_button::after {
+    content: '';
+    width: 15px;
+    height: 9px;
+    display: block;
+    -webkit-mask-image: url(../../img/svg/arrow_down.svg);
+    background-color: #A2A2A2;
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    margin-left: auto;
+    transition: transform 0.5s, margin-top 0.5s;
+}
+
+.calendar_button.isOpenButton::after {
+    transform: matrix(1.00, 0.00, 0.00, -1.00, 0, 0);
+    margin-top: -2px;
+    transition: transform 0.5s, margin-top 0.5s;
+}
+
+.button-box {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+}

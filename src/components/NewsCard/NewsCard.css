@@ -1,0 +1,133 @@
+.news-card {
+    margin-bottom: 28px;
+    position: relative;
+    border-radius: 4px;
+
+    height: 630px;
+}
+
+.img-thumb {
+    width: 288px;
+    height: 395px;
+
+}
+
+.news-card>img {
+    width: 288px;
+    height: 395px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.news_section {
+    position: absolute;
+    top: 40px;
+    display: block;
+    width: 112px;
+    height: 24px;
+    background-color: #4440F6B2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    border-radius: 0px 4px 4px 0px;
+}
+
+h3 {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 33px;
+    letter-spacing: -0.01em;
+    margin-bottom: 20px
+}
+
+.news-abstract-text {
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+}
+
+.help-thumb {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    color: #A8A8A8;
+}
+
+.add-to-favorite {
+    position: absolute;
+    width: 126px;
+    height: 28px;
+    left: 154px;
+    top: 355px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    color: #111321;
+    display: flex;
+    align-items: center;
+    padding: 6px 12px;
+    justify-content: space-between;
+}
+
+.add-to-favorite::after {
+    content: '';
+    background-image: url('../../img/svg/voind_hear.svg');
+    width: 16px;
+    height: 16px;
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.in-favorite::after {
+    background-image: url('../../img/svg/full_heard.svg');
+}
+
+.help-thumb {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.already-to-read::after {
+    content: 'Already read';
+    width: 107px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 19px;
+    background-image: url(../../img/svg/chceked.svg);
+    background-position: 100% 50%;
+    background-repeat: no-repeat;
+    right: 0;
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    color: #00DD73;
+}
+
+.already-to-read::before {
+    content: '';
+
+    position: absolute;
+    width: 107px;
+    top: 0;
+    left: -1px;
+    display: block;
+    width: calc(100% + 1px);
+    height: 100%;
+    background: rgba(244, 244, 244, 0.4);
+    border-radius: 4px;
+}
+
+.to-original-post {
+    color: var(--primal-color);
+}

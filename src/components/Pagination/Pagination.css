@@ -1,0 +1,105 @@
+.paginationBox {
+    display: flex;
+    justify-content: center;
+
+}
+
+.paginationBox>button {
+    border: 1px solid var(--primal-color);
+    border-radius: 2px;
+    background-color: #F4F4F4;
+    color: #111321;
+}
+
+.paginationBox>button:hover {
+    background-color: var(--primal-color);
+    color: var(--white);
+
+}
+
+.paginationBox>button {
+    width: 28px;
+    height: 28px;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.paginationBox>button:first-child {
+    width: 72px;
+    height: 28px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    padding-left: 8px;
+    padding-right: 10px;
+}
+
+.paginationBox>button:first-child::before {
+    content: '';
+    mask-image: url('../../img/svg/arroe-left.svg');
+    background-color: #111321;
+    display: block;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    width: 18px;
+    height: 18px;
+}
+
+.paginationBox>button:last-child {
+    width: 72px;
+    height: 28px;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    padding-right: 8px;
+    padding-left: 10px;
+}
+
+.paginationBox>button:last-child::after {
+    content: '';
+    mask-image: url('../../img/svg/arroe-left.svg');
+    background-color: #111321;
+    display: block;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    width: 18px;
+    height: 18px;
+    transform: rotate(180deg);
+}
+
+.paginationBox>button:last-child:hover::after {
+    background-color: var(--white);
+}
+
+.paginationBox>button:first-child:hover::before {
+    background-color: var(--white);
+}
+
+.paginationBox>p {
+    align-items: end;
+    display: flex;
+    padding-bottom: 3px;
+}
+
+
+.paginationBox>button:disabled {
+    opacity: 0.4;
+}
+
+.paginationBox>button:disabled:hover {
+    background-color: #F4F4F4;
+    color: #111321;
+}
+
+.paginationBox>button:disabled:hover::after {
+    background-color: #111321;
+}
+
+.paginationBox>button:disabled:hover::before {
+    background-color: #111321;
+}
+
+.current-page {
+    background-color: var(--primal-color) !important;
+    color: var(--white) !important;
+}

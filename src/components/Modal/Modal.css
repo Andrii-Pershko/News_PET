@@ -1,13 +1,14 @@
 .modal-container {
     position: absolute;
-    top: -100%;
+    top: -200%;
     left: 0;
     height: 100%;
     width: 100%;
     transition: all 0.5s;
     display: flex;
     justify-content: center;
-    background-color: var(--backgtound-color);
+    background-color: var(--background-color);
+    z-index: 1000;
 }
 
 .modal-container.is-Open {
@@ -209,7 +210,6 @@
         color: var(--sun-color);
         width: auto;
         height: auto;
-
     }
 
 }
