@@ -61,7 +61,7 @@ input {
     overflow: hidden;
     position: relative;
     z-index: 1001;
-    transition: all 0.5s;
+    transition: all 1s;
 }
 
 .menu::before {
@@ -125,6 +125,10 @@ input {
     margin-left: 0;
     border: 1px solid var(--border-form);
 
+}
+
+.stuck {
+    overflow: hidden;
 }
 
 @media screen and (min-width: 768px) {

@@ -1,39 +1,43 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './NewsCard.css';
 
-export const NewsCard = ({ news }) => {
+export const NewsCard = ({ news, deleteFavoriteNews, notRead }) => {
   const {
     title,
     abstract,
     section,
     published_date,
     multimedia,
-    url,
-    short_url,
+    web_url,
+    _id,
+    headline,
+    pub_date,
+    news_desk,
   } = news;
+  const [deleteAnimation, setDeleteAnimation] = useState(false);
+  const [inFavorite, setInFavorite] = useState(false);
 
-  const [inFavorite, setInFavorite] = useState(() => {
-    const favoriteList = localStorage.getItem('favoriteList');
-    const favoriteListParse = JSON.parse(favoriteList);
+  const [isRead, setIsRead] = useState(false);
+  useEffect(() => {
+    const favoriteListParse = JSON.parse(localStorage.getItem('favoriteList'));
+    const readingListParse = JSON.parse(localStorage.getItem('alreadyRead'));
 
     if (favoriteListParse.length === 0) {
-      return false;
+      return;
+    } else {
+      setInFavorite(favoriteListParse.some(news => news._id === _id));
     }
-    return favoriteListParse.some(news => news.short_url === short_url);
-  });
 
-  const [isRead, setIsRead] = useState(() => {
-    const readingList = localStorage.getItem('alreadyRead');
-    const freadingListParse = JSON.parse(readingList);
-
-    if (freadingListParse.length === 0) {
-      return false;
+    if (readingListParse.length === 0) {
+      return;
+    } else {
+      setIsRead(readingListParse.some(news => news._id === _id));
     }
-    return freadingListParse.some(news => news.short_url === short_url);
-  });
+  }, [_id, inFavorite]);
 
   const formatDate = date => {
-    return date.slice(0, 10).replace(/-/g, '/');
+    const dateFormating = date.slice(0, 10).split('-');
+    return `${dateFormating[2]}/${dateFormating[1]}/${dateFormating[0]}`;
   };
 
   const formatText = text => {
@@ -57,40 +61,68 @@ export const NewsCard = ({ news }) => {
       setInFavorite(!inFavorite);
       return;
     }
-    const filteredListNews = favoriteList.filter(
-      news => news.short_url !== short_url
-    );
+    const filteredListNews = favoriteList.filter(news => news._id !== _id);
     localStorage.setItem('favoriteList', JSON.stringify(filteredListNews));
     setInFavorite(!inFavorite);
+
+    if (deleteFavoriteNews !== undefined) {
+      deleteFavoriteNews(setDeleteAnimation, filteredListNews.length);
+    }
   };
 
   const handleReadingNews = () => {
     const alreadyRead = JSON.parse(localStorage.getItem('alreadyRead'));
-    alreadyRead.push(news);
-
-    localStorage.setItem('alreadyRead', JSON.stringify(alreadyRead));
-    setIsRead(!isRead);
+    const checkAlreadyRead = alreadyRead.filter(
+      newsRead => newsRead._id === news._id
+    );
+    console.log('first', checkAlreadyRead);
+    if (checkAlreadyRead.length === 0) {
+      alreadyRead.push(news);
+      localStorage.setItem('alreadyRead', JSON.stringify(alreadyRead));
+      setIsRead(true);
+    }
   };
 
+  if (headline === undefined && title === '') {
+    return;
+  }
   return (
-    <li className={`news-card ${isRead ? 'already-to-read' : ''}`}>
-      <p className="news_section">{section}</p>
+    <li
+      className={`news-card ${
+        notRead === undefined ? (isRead ? 'already-to-read' : '') : ''
+      } ${deleteAnimation ? 'delete-favorite' : ''}`}
+    >
+      <p className="news_section">{section || news_desk}</p>
       <button
         onClick={handleAddToFavorite}
         type="button"
         className={`add-to-favorite ${inFavorite ? 'in-favorite' : ''}`}
       >
-        Add to favorite
+        <span className="add-animation">
+          <span className="content">
+            Add to favorite &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Remove from
+            favorite
+          </span>
+        </span>
       </button>
-      <img src={multimedia[0].url} alt="" />
-      <h3>{formatTitle(title)}</h3>
+      <img
+        src={
+          multimedia.length === 0
+            ? `https://www.indiablooms.com/life_pic/2016/news-1471859267.jpg`
+            : multimedia[2].url.slice(0, 5) === `https`
+            ? multimedia[2].url
+            : `https://static01.nyt.com/${multimedia[2].url}`
+        }
+        alt=""
+      />
+      <h3>{formatTitle(title || headline.main)}</h3>
       <p className="news-abstract-text">{formatText(abstract)}</p>
       <div className="help-thumb">
-        <p>{formatDate(published_date)}</p>
+        <p>{formatDate(published_date || pub_date)}</p>
         <a
           className="to-original-post"
           onClick={handleReadingNews}
-          href={url}
+          href={web_url}
           target="_blank"
           rel="noreferrer"
         >

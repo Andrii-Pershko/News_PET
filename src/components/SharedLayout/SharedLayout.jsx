@@ -8,12 +8,21 @@ import { useTheme } from 'userContext';
 export const SharedLayout = () => {
   const [openMenu, setOpenMenu] = useState(false);
   const [openSearchBar, setOpenSearchBar] = useState(false);
-  const [inputValue, setInputValue] = useState('');
+
   const body = document.querySelector('body');
+  const {
+    darkTheme,
+    toglleTheme,
+    loading,
+    setInputValue,
+    setCurrentPage,
+    setSelectCategories,
+  } = useTheme();
 
-  const { darkTheme, toglleTheme, loading } = useTheme();
-
-  body.setAttribute('class', `${darkTheme ? 'darkTheme' : 'whiteTheme'}`);
+  body.setAttribute(
+    'class',
+    `${darkTheme ? 'darkTheme' : 'whiteTheme'} ${openMenu ? 'stuck' : ''}`
+  );
 
   const navigate = useNavigate();
 
@@ -26,9 +35,12 @@ export const SharedLayout = () => {
   };
 
   const handleSubmit = e => {
+    setCurrentPage(1);
     e.preventDefault();
-    console.log(inputValue);
+    setInputValue(e.target[1].value);
     navigate('/');
+    setOpenSearchBar(!openSearchBar);
+    setSelectCategories('categories');
   };
 
   if (loading) {
@@ -38,7 +50,9 @@ export const SharedLayout = () => {
   return (
     <Container>
       <header>
-        <p className="logo">News</p>
+        <NavLink to={'/'} className="logo">
+          News
+        </NavLink>
         <nav>
           <NavLink className="link home" to="/" end>
             Home
@@ -60,11 +74,7 @@ export const SharedLayout = () => {
               onClick={handleClickToSearch}
               type={!openSearchBar ? 'submit' : 'button'}
             ></button>
-            <input
-              onChange={e => setInputValue(e.target.value)}
-              value={inputValue}
-              placeholder="Search"
-            />
+            <input placeholder="Search" />
           </form>
         </div>
         <button
@@ -76,12 +86,7 @@ export const SharedLayout = () => {
             onClick={toglleTheme}
             className={`custom-check  ${darkTheme ? 'check' : ''}`}
           ></div>
-          <input
-            className="visually-hidden "
-            type="checkbox"
-            name="hobby"
-            value="music"
-          />
+          <input className="visually-hidden" type="checkbox" name="theme" />
         </label>
       </header>
       <Suspense fallback={<div>Loading page...</div>}>

@@ -1,6 +1,7 @@
 .paginationBox {
     display: flex;
     justify-content: center;
+    margin-bottom: 20px;
 
 }
 
@@ -76,7 +77,7 @@
 }
 
 .paginationBox>p {
-    align-items: end;
+    align-items: flex-end;
     display: flex;
     padding-bottom: 3px;
 }
@@ -102,4 +103,11 @@
 .current-page {
     background-color: var(--primal-color) !important;
     color: var(--white) !important;
+}
+
+.pagination_loading {
+    margin-bottom: 20px;
+    text-align: center;
+    height: 24px;
+
 }
