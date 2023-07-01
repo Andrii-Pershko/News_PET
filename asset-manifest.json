@@ -1,22 +1,36 @@
 {
   "files": {
-    "main.css": "/News_PET/static/css/main.4d4e76cf.css",
-    "main.js": "/News_PET/static/js/main.d1b26365.js",
+    "main.css": "/News_PET/static/css/main.04607d76.css",
+    "main.js": "/News_PET/static/js/main.30743849.js",
+    "static/media/not_found_table@2.png": "/News_PET/static/media/not_found_table@2.1439160dfa5ed9d7ded5.png",
+    "static/media/not_found_table@1.png": "/News_PET/static/media/not_found_table@1.40f5acaa2bc16a5ec6ef.png",
+    "static/media/not_found_mobile@2.png": "/News_PET/static/media/not_found_mobile@2.9cc68987f42c750c9063.png",
+    "static/media/not_found@x2.webp": "/News_PET/static/media/not_found@x2.72f94138b69b5ef52889.webp",
+    "static/media/not_found.webp": "/News_PET/static/media/not_found.f4fe39e9645b5d1f4d2c.webp",
+    "static/media/not_found_mobile@1.png": "/News_PET/static/media/not_found_mobile@1.95cfac24b102b2ccfa81.png",
     "index.html": "/News_PET/index.html",
+    "static/media/location.svg": "/News_PET/static/media/location.2b605c7c667ef29a5dfd.svg",
+    "static/media/chceked.svg": "/News_PET/static/media/chceked.608df9506901bff8ff26.svg",
     "static/media/favorit.svg": "/News_PET/static/media/favorit.99575cd0706e1da0b78e.svg",
+    "static/media/calendar-withe.svg": "/News_PET/static/media/calendar-withe.c8cbf878f1218697785f.svg",
+    "static/media/calendar.svg": "/News_PET/static/media/calendar.3b5c177cf0d027c28f71.svg",
     "static/media/moon.svg": "/News_PET/static/media/moon.8c62e183267eac428bac.svg",
     "static/media/book.svg": "/News_PET/static/media/book.8a4a531f9cb080f5c63a.svg",
     "static/media/dandruff.svg": "/News_PET/static/media/dandruff.a2b05497ee443095b46b.svg",
     "static/media/sun.svg": "/News_PET/static/media/sun.9fd3a580df0c2bb40c66.svg",
     "static/media/home.svg": "/News_PET/static/media/home.8d041fd34b98b53d3de0.svg",
+    "static/media/voind_hear.svg": "/News_PET/static/media/voind_hear.e828f0f1271670a5437e.svg",
+    "static/media/full_heard.svg": "/News_PET/static/media/full_heard.6a9368ac0d63fb151dbc.svg",
     "static/media/menu.svg": "/News_PET/static/media/menu.40cad0bd6f1c14ba9cac.svg",
     "static/media/x.svg": "/News_PET/static/media/x.b1abca649ee6a6d7941e.svg",
+    "static/media/arrow_down.svg": "/News_PET/static/media/arrow_down.54ab5a997609a5cbc376.svg",
+    "static/media/arroe-left.svg": "/News_PET/static/media/arroe-left.ca91f6dec064e932cd6d.svg",
     "static/media/chevron-right.svg": "/News_PET/static/media/chevron-right.c1fd7fe4ea38b1bdc072.svg",
-    "main.4d4e76cf.css.map": "/News_PET/static/css/main.4d4e76cf.css.map",
-    "main.d1b26365.js.map": "/News_PET/static/js/main.d1b26365.js.map"
+    "main.04607d76.css.map": "/News_PET/static/css/main.04607d76.css.map",
+    "main.30743849.js.map": "/News_PET/static/js/main.30743849.js.map"
   },
   "entrypoints": [
-    "static/css/main.4d4e76cf.css",
-    "static/js/main.d1b26365.js"
+    "static/css/main.04607d76.css",
+    "static/js/main.30743849.js"
   ]
 }
