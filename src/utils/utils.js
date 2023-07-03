@@ -25,3 +25,35 @@ export const getDataFormat = date => {
   }
   return `${day}/${month}/${year}`;
 };
+
+export const formatDateForPublishDate = date => {
+  const dateFormating = date.slice(0, 10).split('-');
+  return `${dateFormating[2]}/${dateFormating[1]}/${dateFormating[0]}`;
+};
+
+export const formatText = (text, currentUserDeviceShowNews) => {
+  if (currentUserDeviceShowNews === 'Mobile') {
+    if (text.length > 120) {
+      return `${text.slice(0, 120)}...`;
+    }
+  }
+  if (currentUserDeviceShowNews !== 'Mobile') {
+    if (text.length > 200) {
+      return `${text.slice(0, 200)}...`;
+    }
+  }
+
+  return text;
+};
+
+export const formatTitle = title => {
+  if (title.length > 65) {
+    return `${title.slice(0, 65)}...`;
+  }
+  return title;
+};
+
+export const formatingDataReadRender = date => {
+  const dateFormating = date.split('/');
+  return `${dateFormating[2]}/${dateFormating[1]}/${dateFormating[0]}`;
+};

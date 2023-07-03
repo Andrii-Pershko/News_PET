@@ -27,7 +27,6 @@ body::after {
     width: 100%;
 }
 
-
 nav {
     display: none;
     position: relative;
@@ -93,14 +92,11 @@ input {
     width: 24px;
     height: 24px;
     transition: all 0.5s;
-
 }
 
 .menu.active-btn::after {
     top: 0;
     background-size: 24px;
-
-
 }
 
 .search-form {
@@ -124,13 +120,14 @@ input {
 .searchOpen {
     margin-left: 0;
     border: 1px solid var(--border-form);
-
 }
 
 .stuck {
     overflow: hidden;
 }
 
+/*TABLET*/
+/*TABLET*/
 @media screen and (min-width: 768px) {
     nav {
         display: flex;
@@ -217,7 +214,16 @@ input {
 
 }
 
+/*TABLET*/
+/*TABLET*/
+
+/*DESCTOP*/
+/*DESCTOP*/
 @media screen and (min-width: 1280px) {
+    body::after {
+        top: 105px;
+    }
+
     .container {
         width: 1280px;
     }
@@ -261,3 +267,6 @@ input {
     }
 
 }
+
+/*DESCTOP*/
+/*DESCTOP*/

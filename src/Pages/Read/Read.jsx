@@ -14,9 +14,17 @@ export const Read = () => {
     .sort()
     .reverse();
 
+  if (alreadyReadlList.length === 0) {
+    return (
+      <section className="news">
+        <p className="no-favorite-news">You have not read any news.</p>
+      </section>
+    );
+  }
+
   return (
     <section className="news">
-      <ul>
+      <ul >
         {uniqeDateList.map((date, index) => (
           <NewsCellRead
             key={index}

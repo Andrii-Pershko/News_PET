@@ -1,11 +1,11 @@
 import { NewsCard } from 'components/NewsCard/NewsCard';
 import { useState } from 'react';
+import './Favorite.css';
 
 export const Favorite = () => {
   const [favoriteNews, setFavoriteNews] = useState(
     JSON.parse(localStorage.getItem('favoriteList'))
   );
-  console.log('first', favoriteNews);
 
   const deleteFavoriteNews = (func, lengthArray) => {
     func(true);
@@ -17,11 +17,17 @@ export const Favorite = () => {
   };
 
   if (favoriteNews.length === 0) {
-    return <p>You have not added any news to favorites</p>;
+    return (
+      <section className="news">
+        <p className="no-favorite-news">
+          You have not added any news to favorites.
+        </p>
+      </section>
+    );
   }
   return (
     <section className="news">
-      <ul>
+      <ul className="news-list-home">
         {favoriteNews.map((news, index) => (
           <NewsCard
             key={index}

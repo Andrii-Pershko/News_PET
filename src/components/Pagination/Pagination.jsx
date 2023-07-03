@@ -18,10 +18,11 @@ export const Pagination = ({ maxPage, userDevice }) => {
   } = useTheme();
 
   //if our device its mobile
-  if (userDevice === 'Mobile')
-    if (maxPage === 1) {
-      return;
-    }
+  if (userDevice === 'Mobile') {
+  }
+  if (maxPage === 1) {
+    return;
+  }
 
   if (loadingPagination) {
     return <p className="pagination_loading">Loading</p>;

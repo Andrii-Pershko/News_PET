@@ -1,1 +1,0 @@
-import { defaul } from './NotFound';

@@ -8,7 +8,7 @@ import { Weather } from 'components/Weather/Weather';
 import { Pagination } from 'components/Pagination/Pagination';
 import { NotFoundNews } from 'components/NotFoundPage/NotFoundNews';
 import { formatDate, getDataFormat } from 'utils/utils';
-import { Categories } from 'components/Categories/Categories';
+import { Categories } from 'components/Categories/CategoriesList';
 
 export const Home = () => {
   const [isOpenFilterMenu, setIsOpenFilterMenu] = useState(false);
@@ -27,6 +27,7 @@ export const Home = () => {
     selectCategories,
     setSelectCategories,
     setIsLoading,
+    currentUserDeviceShowNews,
   } = useTheme();
 
   const clickFilter = e => {
@@ -37,6 +38,31 @@ export const Home = () => {
     }
 
     if (e.target.dataset.inf) {
+      if (e.target.dataset.inf === 'categories') {
+        setInputValue('');
+        setSelectCategories(e.target.dataset.inf);
+        return;
+      }
+      setSelectCategories(e.target.dataset.inf);
+      setInputValue(e.target.dataset.inf);
+    }
+  };
+
+  const clickFilterShowCateg = e => {
+    form.reset();
+    if (isOpenCalendar) {
+      setIsOpenCalendar(!isOpenCalendar);
+    }
+    if (isOpenFilterMenu) {
+      setIsOpenFilterMenu(false);
+    }
+
+    if (e.target.dataset.inf) {
+      if (e.target.dataset.inf === 'categories') {
+        setInputValue('');
+        setSelectCategories(e.target.dataset.inf);
+        return;
+      }
       setSelectCategories(e.target.dataset.inf);
       setInputValue(e.target.dataset.inf);
     }
@@ -66,6 +92,8 @@ export const Home = () => {
       <section className="news filter">
         <div className="button-box">
           <Categories
+            clickFilterShowCateg={clickFilterShowCateg}
+            currentUserDeviceShowNews={currentUserDeviceShowNews}
             clickFilter={clickFilter}
             categories={categories}
             selectCategories={selectCategories}
@@ -73,6 +101,7 @@ export const Home = () => {
             isOpenFilterMenu={isOpenFilterMenu}
             setNews={setNews}
           />
+          <p className="calender-text"> Search date news</p>
           <button
             onKeyDown={e => {
               if (e.code === 'Escape' && isOpenCalendar) {
@@ -87,7 +116,9 @@ export const Home = () => {
             <span className="date-button">{getDataFormat(currentDate)}</span>
           </button>
           <Calendar
-            className={`home-calendar ${isOpenCalendar ? 'is-open-calendar' : ''}`}
+            className={`home-calendar ${
+              isOpenCalendar ? 'is-open-calendar' : ''
+            }`}
             onChange={handleCalendar}
             value={currentDate}
             locale={'eng'}
@@ -103,11 +134,24 @@ export const Home = () => {
         ) : (
           news.docs.length === 0 || (
             <>
-              <ul>
-                <Weather />
-                {news.docs.map((news, index) => (
-                  <NewsCard key={index} news={news} />
-                ))}
+              <ul className="news-list-home">
+                {news.docs.map((newss, index) => {
+                  if (currentUserDeviceShowNews === 'Mobile' && index === 0) {
+                    return <Weather key={'weather'} />;
+                  }
+
+                  if (currentUserDeviceShowNews === 'Tablet' && index === 1) {
+                    return <Weather key={'weather'} />;
+                  }
+
+                  if (
+                    (currentUserDeviceShowNews === 'Desctop' && index === 2) ||
+                    news.docs.length === 1
+                  ) {
+                    return <Weather key={'weather'} />;
+                  }
+                  return <NewsCard key={index} news={newss} />;
+                })}
               </ul>
               <Pagination maxPage={Math.ceil(news.meta.hits / 10 - 1)} />
             </>

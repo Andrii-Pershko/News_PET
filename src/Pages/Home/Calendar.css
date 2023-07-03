@@ -28,7 +28,6 @@
     display: none;
 }
 
-
 .react-calendar__navigation {
     display: flex;
 }
@@ -41,7 +40,6 @@
     flex-grow: 0 !important;
     margin-right: auto;
     margin-bottom: 17px;
-
 }
 
 .react-calendar__navigation__label__labelText {
@@ -92,9 +90,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -35%) rotate(90deg);
-
 }
-
 
 .react-calendar__navigation__next-button::before {
     content: '';

@@ -30,7 +30,7 @@ export const UserProvider = ({ children }) => {
       //mobile
       return 'Mobile';
     }
-    if (window.innerWidth > 1200) {
+    if (window.innerWidth > 1280) {
       //desktop
       return 'Desctop';
     }

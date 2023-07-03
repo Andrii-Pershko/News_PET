@@ -9,6 +9,8 @@
     align-items: center;
     margin-bottom: 28px;
     border-radius: 4px;
+    color: white;
+
 }
 
 .city-data {
@@ -66,3 +68,47 @@
     width: 165px;
     height: 156px;
 }
+
+.weather>p {
+    text-align: center;
+}
+
+/*TABLET*/
+/*TABLET*/
+@media screen and (min-width: 768px) {
+    .weather {
+        width: 353px;
+        height: 675px;
+    }
+
+    .city-data {
+        margin-bottom: 89px;
+    }
+
+    .icon-weather {
+        margin-bottom: 90px;
+    }
+}
+
+/*TABLET*/
+/*TABLET*/
+
+/*DESCTOP*/
+/*DESCTOP*/
+@media screen and (min-width: 1280px) {
+    .weather {
+        width: 395px;
+        height: 675px;
+    }
+
+    .city-data {
+        margin-bottom: 89px;
+    }
+
+    .icon-weather {
+        margin-bottom: 90px;
+    }
+}
+
+/*DESCTOP*/
+/*DESCTOP*/

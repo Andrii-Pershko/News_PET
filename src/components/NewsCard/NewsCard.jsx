@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './NewsCard.css';
+import { formatDateForPublishDate, formatText, formatTitle } from 'utils/utils';
 
 export const NewsCard = ({ news, deleteFavoriteNews, notRead }) => {
   const {
@@ -13,45 +14,26 @@ export const NewsCard = ({ news, deleteFavoriteNews, notRead }) => {
     headline,
     pub_date,
     news_desk,
+    currentUserDeviceShowNews,
   } = news;
+  
   const [deleteAnimation, setDeleteAnimation] = useState(false);
   const [inFavorite, setInFavorite] = useState(false);
+  const [isRead, setIsRead] = useState(
+    JSON.parse(localStorage.getItem('favoriteList')).some(
+      news => news._id === _id
+    )
+  );
 
-  const [isRead, setIsRead] = useState(false);
   useEffect(() => {
     const favoriteListParse = JSON.parse(localStorage.getItem('favoriteList'));
-    const readingListParse = JSON.parse(localStorage.getItem('alreadyRead'));
 
     if (favoriteListParse.length === 0) {
       return;
     } else {
       setInFavorite(favoriteListParse.some(news => news._id === _id));
     }
-
-    if (readingListParse.length === 0) {
-      return;
-    } else {
-      setIsRead(readingListParse.some(news => news._id === _id));
-    }
   }, [_id, inFavorite]);
-
-  const formatDate = date => {
-    const dateFormating = date.slice(0, 10).split('-');
-    return `${dateFormating[2]}/${dateFormating[1]}/${dateFormating[0]}`;
-  };
-
-  const formatText = text => {
-    if (text.length > 90) {
-      return `${text.slice(0, 90)}...`;
-    }
-    return text;
-  };
-  const formatTitle = title => {
-    if (title.length > 50) {
-      return `${title.slice(0, 55)}...`;
-    }
-    return title;
-  };
 
   const handleAddToFavorite = () => {
     const favoriteList = JSON.parse(localStorage.getItem('favoriteList'));
@@ -75,7 +57,7 @@ export const NewsCard = ({ news, deleteFavoriteNews, notRead }) => {
     const checkAlreadyRead = alreadyRead.filter(
       newsRead => newsRead._id === news._id
     );
-    console.log('first', checkAlreadyRead);
+
     if (checkAlreadyRead.length === 0) {
       alreadyRead.push(news);
       localStorage.setItem('alreadyRead', JSON.stringify(alreadyRead));
@@ -118,7 +100,12 @@ export const NewsCard = ({ news, deleteFavoriteNews, notRead }) => {
       <h3>{formatTitle(title || headline.main)}</h3>
       <p className="news-abstract-text">{formatText(abstract)}</p>
       <div className="help-thumb">
-        <p>{formatDate(published_date || pub_date)}</p>
+        <p>
+          {formatDateForPublishDate(
+            published_date || pub_date,
+            currentUserDeviceShowNews
+          )}
+        </p>
         <a
           className="to-original-post"
           onClick={handleReadingNews}

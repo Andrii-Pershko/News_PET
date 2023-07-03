@@ -2,7 +2,6 @@
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
-
 }
 
 .paginationBox>button {
@@ -15,7 +14,6 @@
 .paginationBox>button:hover {
     background-color: var(--primal-color);
     color: var(--white);
-
 }
 
 .paginationBox>button {
@@ -81,7 +79,6 @@
     display: flex;
     padding-bottom: 3px;
 }
-
 
 .paginationBox>button:disabled {
     opacity: 0.4;

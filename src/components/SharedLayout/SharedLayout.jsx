@@ -1,4 +1,4 @@
-import { Suspense, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { Container } from 'components/Container/Container.jsx';
 import { Modal } from 'components/Modal/Modal';
@@ -21,9 +21,16 @@ export const SharedLayout = () => {
 
   body.setAttribute(
     'class',
-    `${darkTheme ? 'darkTheme' : 'whiteTheme'} ${openMenu ? 'stuck' : ''}`
+    `preload ${darkTheme ? 'darkTheme' : 'whiteTheme'} ${
+      openMenu ? 'stuck' : ''
+    }`
   );
 
+  useEffect(() => {
+    window.addEventListener('load', () => {
+      body.classList.remove('preload');
+    });
+  });
   const navigate = useNavigate();
 
   const togleStatusMenu = () => {

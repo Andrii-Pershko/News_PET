@@ -7,7 +7,6 @@
 }
 
 .close {
-
     max-height: 34px;
     transition: max-height 1.2s;
 }
@@ -27,7 +26,7 @@
     width: 15px;
     height: 9px;
     position: absolute;
-    left: 86px;
+    left: 92px;
     top: 6px;
     display: block;
     -webkit-mask-image: url(../../img/svg/arrow_down.svg);
@@ -44,7 +43,7 @@
     width: 15px;
     height: 9px;
     position: absolute;
-    left: 86px;
+    left: 92px;
     top: 6px;
     display: block;
     -webkit-mask-image: url(../../img/svg/arrow_down.svg);
@@ -56,8 +55,7 @@
     transform: rotate(180deg);
 }
 
-
-
 .news-in-cell {
     margin-top: 24px;
+    display: flex;
 }

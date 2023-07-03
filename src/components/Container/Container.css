@@ -3,9 +3,7 @@
     margin-left: auto;
     margin-right: auto;
     padding: 0 16px;
-
     color: var(--text-color);
-
 }
 
 .view {
@@ -13,15 +11,24 @@
     height: 100%;
 }
 
-
+/*TABLET*/
+/*TABLET*/
 @media screen and (min-width: 768px) {
     .container {
         width: 768px;
     }
 }
 
+/*TABLET*/
+/*TABLET*/
+
+/*DESCTOP*/
+/*DESCTOP*/
 @media screen and (min-width: 1280px) {
     .container {
         width: 1280px;
     }
 }
+
+/*DESCTOP*/
+/*DESCTOP*/
