@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useState } from 'react';
+import { Suspense, useState } from 'react';
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { Container } from 'components/Container/Container.jsx';
 import { Modal } from 'components/Modal/Modal';

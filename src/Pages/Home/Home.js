@@ -8,7 +8,7 @@ import { Weather } from 'components/Weather/Weather';
 import { Pagination } from 'components/Pagination/Pagination';
 import { NotFoundNews } from 'components/NotFoundPage/NotFoundNews';
 import { formatDate, getDataFormat } from 'utils/utils';
-import { Categories } from 'components/Categories/CategoriesList';
+import { Categories } from 'components/CategoriesList/CategoriesList';
 
 export const Home = () => {
   const [isOpenFilterMenu, setIsOpenFilterMenu] = useState(false);
