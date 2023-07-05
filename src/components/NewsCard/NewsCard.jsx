@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './NewsCard.css';
 import { formatDateForPublishDate, formatText, formatTitle } from 'utils/utils';
 
@@ -16,24 +16,18 @@ export const NewsCard = ({ news, deleteFavoriteNews, notRead }) => {
     news_desk,
     currentUserDeviceShowNews,
   } = news;
-  
+
   const [deleteAnimation, setDeleteAnimation] = useState(false);
-  const [inFavorite, setInFavorite] = useState(false);
+  const [inFavorite, setInFavorite] = useState(
+    JSON.parse(localStorage.getItem('favoriteList')).some(
+      news => news._id === _id
+    )
+  );
   const [isRead, setIsRead] = useState(
     JSON.parse(localStorage.getItem('favoriteList')).some(
       news => news._id === _id
     )
   );
-
-  useEffect(() => {
-    const favoriteListParse = JSON.parse(localStorage.getItem('favoriteList'));
-
-    if (favoriteListParse.length === 0) {
-      return;
-    } else {
-      setInFavorite(favoriteListParse.some(news => news._id === _id));
-    }
-  }, [_id, inFavorite]);
 
   const handleAddToFavorite = () => {
     const favoriteList = JSON.parse(localStorage.getItem('favoriteList'));

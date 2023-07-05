@@ -4,7 +4,6 @@ import { formatDateNewsRead, formatingDataReadRender } from 'utils/utils';
 import './NewsCellRead.css';
 
 export const NewsCellRead = ({ date, alreadyReadlList }) => {
-  console.log('date', date);
   const [isOpenDateBlock, setIsOpenDateBlock] = useState(false);
 
   return (

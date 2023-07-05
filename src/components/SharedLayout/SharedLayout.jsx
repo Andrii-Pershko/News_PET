@@ -21,16 +21,9 @@ export const SharedLayout = () => {
 
   body.setAttribute(
     'class',
-    `preload ${darkTheme ? 'darkTheme' : 'whiteTheme'} ${
-      openMenu ? 'stuck' : ''
-    }`
+    `PRE ${darkTheme ? 'darkTheme' : 'whiteTheme'} ${openMenu ? 'stuck' : ''}`
   );
 
-  useEffect(() => {
-    window.addEventListener('load', () => {
-      body.classList.remove('preload');
-    });
-  });
   const navigate = useNavigate();
 
   const togleStatusMenu = () => {

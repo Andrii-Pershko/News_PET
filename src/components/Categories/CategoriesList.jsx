@@ -31,13 +31,6 @@ export const Categories = ({
     return [];
   };
 
-  console.log(
-    '  filterCategoriesForDeviceList().indexOf(selectCategories) !== -1',
-    filterCategoriesForDeviceList().filter(
-      categ => categ.section === selectCategories
-    ).length > 0
-  );
-
   return (
     <>
       <ul className="how-categories-list">

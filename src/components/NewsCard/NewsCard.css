@@ -101,13 +101,13 @@ h3 {
 
 .add-to-favorite.in-favorite .add-animation {
     width: 124px;
-    transition: width 1s;
+    transition: width 0.2s;
 }
 
 .add-to-favorite .content {
     width: 260px;
     display: block;
-    transition: width 1s;
+    transition: width 0.2s;
 }
 
 
@@ -225,5 +225,6 @@ h3 {
     }
 
 }
+
 /*DESCTOP*/
 /*DESCTOP*/
